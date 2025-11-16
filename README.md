@@ -1,70 +1,152 @@
-# Getting Started with Create React App
+# Reservation app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+GOLD Restaurant est une application web moderne développée avec React.js, conçue pour présenter un restaurant haut de gamme à travers une interface élégante, responsive et professionnelle.
+Le site met en avant différents aspects du restaurant, tels que :
 
-In the project directory, you can run:
+Une page d’accueil immersive avec un design luxueux
 
-### `npm start`
+Une présentation du restaurant (About)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Un menu filtrable par catégories (Pizza, Burgers, Salads, Pasta, etc.)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Une galerie d’images illustrant les plats et l’ambiance
 
-### `npm test`
+Un formulaire de réservation, avec enregistrement des données dans LocalStorage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Une navigation fluide grâce à React Router
 
-### `npm run build`
+L’objectif du projet est de fournir une plateforme numérique propre, intuitive et facile à utiliser, tout en offrant une expérience visuelle haut de gamme adaptée aux restaurants modernes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Structure du projet
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+gold-restaurant/
+│
+├─ src/
+│ ├─ assets/
+│ │ ├─ images/
+│ │ ├─ img/
+│ │ │
+│ │ │ └─ gallery/
+│ │ │ ├─ gallery-1.jpg
+│ │ │ ├─ gallery-2.jpg
+│ │ │ └─ ...
+│ │ └─ css/
+│ │ ├─ Navbar.css
+│ │ ├─ Home.css
+│ │ ├─ About.css
+│ │ ├─ Menu.css
+│ │ ├─ Gallery.css
+│ │ └─ Contact.css
+│ │
+│ ├─ Components/
+│ │ └─ Navbar.jsx
+│ │
+│ ├─ Pages/
+│ │ ├─ Home.jsx
+│ │ ├─ About.jsx
+│ │ ├─ Menu.jsx
+│ │ ├─ Gallery.jsx
+│ │ └─ Contact.jsx
+│ │
+│ ├─ App.jsx
+│ └─ main.jsx
+│
+├─ package.json
+├─ vite.config.js
+└─ README.md
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies utilisées
 
-### `npm run eject`
+**React.js** – bibliothèque principale pour construire l’interface
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**React Router DOM** – gestion de la navigation entre les pages
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**CSS3 personnalisé** – design moderne, animations et responsive layout
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**LocalStorage** – stockage local des réservations
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**UUID** – génération d’identifiants uniques pour les réservations
 
-## Learn More
+**JavaScript (ES6+)** – logique et fonctionnalités interactives
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Git / GitHub** – gestion et versionnement du projet
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📸 Captures d’écran
 
-### Code Splitting
+**NavBar :**  
+![NavBar](assets/imagesREA/image.png)
+La barre de navigation constitue l’en-tête principal du site.
+Elle contient le logo GOLD-Restaurant, ainsi que les liens vers les différentes sections : Home, About, Menu, Gallery et Book a Table.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Button_filter_Menu :**  
+![Button_filter](assets/imagesREA/Buttons_filter.png)
+Cette section du code gère le système de filtrage dynamique des éléments du menu.
+Les catégories sont générées automatiquement à partir des données (menuItems) grâce à Set(), ce qui permet d’éviter la duplication des types et de garder la liste toujours à jour.
 
-### Analyzing the Bundle Size
+const types = ["All", ...new Set(menuItems.map((item) => item.type))];
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Lorsque l’utilisateur clique sur un bouton de catégorie, l’état filter est mis à jour.
+Ensuite, les éléments affichés sont filtrés en fonction du type sélectionné :
+const filteredItems =
+filter === "All"
+? menuItems
+: menuItems.filter((item) => item.type === filter);
 
-### Making a Progressive Web App
+Enfin, une liste de boutons est affichée, chacun permettant de changer la catégorie active.
+Le bouton sélectionné reçoit une classe active pour indiquer visuellement le filtre courant.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**BOOK A TABLE :**  
+**Gestion des États (useState):**
 
-### Advanced Configuration
+Le formulaire utilise plusieurs états pour stocker les informations entrées par l’utilisateur :
+nom – nom du client
+email – adresse email
+date – date choisie
+heure – heure de la réservation
+nombre – nombre de personnes
+message – message optionnel
+reservation – liste de toutes les réservations enregistrées
+messageVR – message de validation ou d’erreur
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![States](assets/images/states.png)
+**Gestion des Effets (useEffect)**
 
-### Deployment
+Deux effets sont utilisés :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1_Chargement des réservations depuis localStorage au montage du composant.
 
-### `npm run build` fails to minify
+2_Sauvegarde automatique des réservations dans localStorage à chaque modification.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Cela permet de conserver les données même après rafraîchissement de la page.
+![effects](assets/images/effects.png)
+
+**Validation des Champs & Détection des Réservations Existantes**
+
+Le formulaire vérifie :
+
+1_champs vides
+
+2_nombre de personnes entre 1 et 10
+
+3_impossibilité de réserver deux fois la même date et heure avec le même nom ou email
+
+En cas d’erreur :
+
+message explicatif
+
+aucune réservation n’est enregistrée
+![champs_vide or deja Reservé](assets/images/erreur.png)
+
+**Confirmation de Réservation**
+
+Si toutes les informations sont valides, la réservation est enregistrée avec un ID unique (uuid).
+Un message de confirmation personnalisé est affiché :
+
+Nom du client
+
+Date & heure de la réservation
+
+Nombre de personnes
+![Valider](assets/images/Valider.png)
