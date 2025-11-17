@@ -76,12 +76,12 @@ gold-restaurant/
 ## 📸 Captures d’écran
 
 **NavBar :**  
-![NavBar](assets/imagesREA/image.png)
+![NavBar](assets/images/image.png)
 La barre de navigation constitue l’en-tête principal du site.
 Elle contient le logo GOLD-Restaurant, ainsi que les liens vers les différentes sections : Home, About, Menu, Gallery et Book a Table.
 
 **Button_filter_Menu :**  
-![Button_filter](assets/imagesREA/Buttons_filter.png)
+![Button_filter](assets/images/Buttons_filter.png)
 Cette section du code gère le système de filtrage dynamique des éléments du menu.
 Les catégories sont générées automatiquement à partir des données (menuItems) grâce à Set(), ce qui permet d’éviter la duplication des types et de garder la liste toujours à jour.
 
