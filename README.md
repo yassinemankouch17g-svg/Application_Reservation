@@ -76,12 +76,12 @@ gold-restaurant/
 ## 📸 Captures d’écran
 
 **NavBar :**  
-![NavBar](assets/images/image.png)
+![image](src/assets/images/image.png)
 La barre de navigation constitue l’en-tête principal du site.
 Elle contient le logo GOLD-Restaurant, ainsi que les liens vers les différentes sections : Home, About, Menu, Gallery et Book a Table.
 
 **Button_filter_Menu :**  
-![Button_filter](assets/images/Buttons_filter.png)
+![Buttons_filter](src/assets/images/Buttons_filter.png)
 Cette section du code gère le système de filtrage dynamique des éléments du menu.
 Les catégories sont générées automatiquement à partir des données (menuItems) grâce à Set(), ce qui permet d’éviter la duplication des types et de garder la liste toujours à jour.
 
@@ -110,7 +110,7 @@ message – message optionnel
 reservation – liste de toutes les réservations enregistrées
 messageVR – message de validation ou d’erreur
 
-![States](assets/images/states.png)
+![states](src/assets/images/states.png)
 **Gestion des Effets (useEffect)**
 
 Deux effets sont utilisés :
@@ -120,7 +120,7 @@ Deux effets sont utilisés :
 2_Sauvegarde automatique des réservations dans localStorage à chaque modification.
 
 Cela permet de conserver les données même après rafraîchissement de la page.
-![effects](assets/images/effects.png)
+![effects](src/assets/images/effects.png)
 
 **Validation des Champs & Détection des Réservations Existantes**
 
@@ -137,7 +137,7 @@ En cas d’erreur :
 message explicatif
 
 aucune réservation n’est enregistrée
-![champs_vide or deja Reservé](assets/images/erreur.png)
+![erreur](src/assets/images/erreur.png)
 
 **Confirmation de Réservation**
 
@@ -149,4 +149,4 @@ Nom du client
 Date & heure de la réservation
 
 Nombre de personnes
-![Valider](assets/images/Valider.png)
+![Valider](src/assets/images/Valider.png)
